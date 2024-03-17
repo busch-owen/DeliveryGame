@@ -13,6 +13,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "AimMouse",
+                    "type": "PassThrough",
+                    "id": "8fd1f191-a8aa-4d6c-bd97-3c2ec7fdec28",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AimController",
+                    "type": "PassThrough",
+                    "id": "f721e681-c6bc-4cf2-be47-363d4e8a1233",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -125,6 +143,72 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "4a7d77f0-256b-478f-9d06-e0f8383fe47f",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Controller",
+                    "id": "4ee3861c-a86d-4f41-82e9-9311660f7313",
+                    "path": "2DVector(mode=2)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimController",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "df57636e-c740-4541-bf21-ce5a4e87f74f",
+                    "path": "<Gamepad>/rightStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimController",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "dafb4557-dbf4-4e2b-9adc-813a93b7dd09",
+                    "path": "<Gamepad>/rightStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimController",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "d54c28bc-7fe5-461b-bc9a-781e9361ac38",
+                    "path": "<Gamepad>/rightStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimController",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "3f3a2b89-77da-4599-b981-895b3214b272",
+                    "path": "<Gamepad>/rightStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimController",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
@@ -133,9 +217,9 @@
             "id": "ceec8611-71f5-4002-ba26-b9cdd1cfa20f",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "ThrowBoxes",
                     "type": "Button",
-                    "id": "e47ce049-35a8-4a31-b880-511c0f037449",
+                    "id": "5d16f203-e087-4caa-a4b2-0a7792ef7881",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -145,12 +229,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "3cd14a20-a880-420c-9465-a058fcb886d0",
-                    "path": "",
+                    "id": "b9bcc0c7-5156-4730-ac10-74bbb972fabc",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "ThrowBoxes",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3d8d460-05e5-4344-92a8-0e1d01595dde",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThrowBoxes",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

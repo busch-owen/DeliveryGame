@@ -5,8 +5,8 @@ using UnityEngine;
 public class CarStats : Singleton<CarStats>
 {
     [field: SerializeField]
-    public float speed { get; private set; }
+    public float Speed { get; private set; }
 
     [field: SerializeField]
-    public float tireFriction { get; private set; }
+    public float TireFriction { get; private set; }
 }

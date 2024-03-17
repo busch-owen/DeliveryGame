@@ -5,8 +5,6 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     Vector2 _movement;
-    float _throttleAmount;
-    float _brakeAmount;
 
     [SerializeField]
     Sprite[] _truckSprites;
@@ -34,26 +32,14 @@ public class CarController : MonoBehaviour
     {
         _movement = movement;
     }
-
-    public void HandleBrakeInput(float brake)
-    {
-        _brakeAmount = brake;
-    }
-
-    public void HandleThrottleInput(float throttle)
-    {
-        _throttleAmount = throttle;
-    }
-
     public void MoveCar()
     {
-        _rb.velocity = Vector2.Lerp(_rb.velocity, _movement * _stats.speed, _stats.tireFriction);
+        _rb.velocity = Vector2.Lerp(_rb.velocity, _movement * _stats.Speed, _stats.TireFriction);
     }
 
     public void UpdateCarVisuals()
     {
         float truckAngle = Mathf.Atan2(_movement.y, _movement.x) * Mathf.Rad2Deg;
-        Debug.Log(truckAngle);
 
         switch(truckAngle)
         {

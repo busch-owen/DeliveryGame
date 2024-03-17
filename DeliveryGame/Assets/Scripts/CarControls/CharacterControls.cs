@@ -35,6 +35,24 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AimMouse"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""8fd1f191-a8aa-4d6c-bd97-3c2ec7fdec28"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AimController"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""f721e681-c6bc-4cf2-be47-363d4e8a1233"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -147,6 +165,72 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a7d77f0-256b-478f-9d06-e0f8383fe47f"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Controller"",
+                    ""id"": ""4ee3861c-a86d-4f41-82e9-9311660f7313"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimController"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""df57636e-c740-4541-bf21-ce5a4e87f74f"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""dafb4557-dbf4-4e2b-9adc-813a93b7dd09"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d54c28bc-7fe5-461b-bc9a-781e9361ac38"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""3f3a2b89-77da-4599-b981-895b3214b272"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -155,9 +239,9 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
             ""id"": ""ceec8611-71f5-4002-ba26-b9cdd1cfa20f"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""ThrowBoxes"",
                     ""type"": ""Button"",
-                    ""id"": ""e47ce049-35a8-4a31-b880-511c0f037449"",
+                    ""id"": ""5d16f203-e087-4caa-a4b2-0a7792ef7881"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -167,12 +251,23 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""3cd14a20-a880-420c-9465-a058fcb886d0"",
-                    ""path"": """",
+                    ""id"": ""b9bcc0c7-5156-4730-ac10-74bbb972fabc"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""ThrowBoxes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3d8d460-05e5-4344-92a8-0e1d01595dde"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThrowBoxes"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -184,9 +279,11 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
         // PlayerMovement
         m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
         m_PlayerMovement_Movement = m_PlayerMovement.FindAction("Movement", throwIfNotFound: true);
+        m_PlayerMovement_AimMouse = m_PlayerMovement.FindAction("AimMouse", throwIfNotFound: true);
+        m_PlayerMovement_AimController = m_PlayerMovement.FindAction("AimController", throwIfNotFound: true);
         // PlayerActions
         m_PlayerActions = asset.FindActionMap("PlayerActions", throwIfNotFound: true);
-        m_PlayerActions_Newaction = m_PlayerActions.FindAction("New action", throwIfNotFound: true);
+        m_PlayerActions_ThrowBoxes = m_PlayerActions.FindAction("ThrowBoxes", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,11 +346,15 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerMovement;
     private List<IPlayerMovementActions> m_PlayerMovementActionsCallbackInterfaces = new List<IPlayerMovementActions>();
     private readonly InputAction m_PlayerMovement_Movement;
+    private readonly InputAction m_PlayerMovement_AimMouse;
+    private readonly InputAction m_PlayerMovement_AimController;
     public struct PlayerMovementActions
     {
         private @CharacterControls m_Wrapper;
         public PlayerMovementActions(@CharacterControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerMovement_Movement;
+        public InputAction @AimMouse => m_Wrapper.m_PlayerMovement_AimMouse;
+        public InputAction @AimController => m_Wrapper.m_PlayerMovement_AimController;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -266,6 +367,12 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @AimMouse.started += instance.OnAimMouse;
+            @AimMouse.performed += instance.OnAimMouse;
+            @AimMouse.canceled += instance.OnAimMouse;
+            @AimController.started += instance.OnAimController;
+            @AimController.performed += instance.OnAimController;
+            @AimController.canceled += instance.OnAimController;
         }
 
         private void UnregisterCallbacks(IPlayerMovementActions instance)
@@ -273,6 +380,12 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @AimMouse.started -= instance.OnAimMouse;
+            @AimMouse.performed -= instance.OnAimMouse;
+            @AimMouse.canceled -= instance.OnAimMouse;
+            @AimController.started -= instance.OnAimController;
+            @AimController.performed -= instance.OnAimController;
+            @AimController.canceled -= instance.OnAimController;
         }
 
         public void RemoveCallbacks(IPlayerMovementActions instance)
@@ -294,12 +407,12 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
     // PlayerActions
     private readonly InputActionMap m_PlayerActions;
     private List<IPlayerActionsActions> m_PlayerActionsActionsCallbackInterfaces = new List<IPlayerActionsActions>();
-    private readonly InputAction m_PlayerActions_Newaction;
+    private readonly InputAction m_PlayerActions_ThrowBoxes;
     public struct PlayerActionsActions
     {
         private @CharacterControls m_Wrapper;
         public PlayerActionsActions(@CharacterControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_PlayerActions_Newaction;
+        public InputAction @ThrowBoxes => m_Wrapper.m_PlayerActions_ThrowBoxes;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -309,16 +422,16 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @ThrowBoxes.started += instance.OnThrowBoxes;
+            @ThrowBoxes.performed += instance.OnThrowBoxes;
+            @ThrowBoxes.canceled += instance.OnThrowBoxes;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @ThrowBoxes.started -= instance.OnThrowBoxes;
+            @ThrowBoxes.performed -= instance.OnThrowBoxes;
+            @ThrowBoxes.canceled -= instance.OnThrowBoxes;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -339,9 +452,11 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnAimMouse(InputAction.CallbackContext context);
+        void OnAimController(InputAction.CallbackContext context);
     }
     public interface IPlayerActionsActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnThrowBoxes(InputAction.CallbackContext context);
     }
 }
